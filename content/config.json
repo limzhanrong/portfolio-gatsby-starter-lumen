@@ -1,7 +1,7 @@
 {
-  "title": "Blog by John Doe",
+  "title": "sLim Zhan Rong",
   "url": "https://lumen.alxshelepenok.com",
-  "subtitle": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+  "subtitle": "Passionate about software engineering.",
   "copyright": "© All rights reserved.",
   "googleAnalyticsId": "UA-73379983-2",
   "disqusShortname": "",
@@ -13,27 +13,31 @@
       "path": "/"
     },
     {
+      "label": "Projects",
+      "path": "/projects"
+    },
+    {
       "label": "About me",
-      "path": "/pages/about"
+      "path": "/about"
     },
     {
       "label": "Contact me",
-      "path": "/pages/contacts"
+      "path": "/contacts"
     }
   ],
   "author": {
-    "name": "John Doe",
+    "name": "1Lim Zhan Rong",
     "photo": "/photo.jpg",
-    "bio": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+    "bio": "Passionate about software engineerings.",
     "contacts": {
       "rss": "",
-      "email": "",
+      "email": "limzhanrong@gmail.com",
       "github": "#",
       "facebook": "#",
-      "telegram": "#",
-      "twitter": "#",
+      "telegram": "",
+      "twitter": "",
       "linkedin": "#",
-      "instagram": "#",
+      "instagram": "",
       "line": "",
       "weibo": "",
       "gitlab": "",
