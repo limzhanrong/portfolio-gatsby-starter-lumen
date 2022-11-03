@@ -9,8 +9,10 @@ import { Comments } from "./Comments";
 import { Content } from "./Content";
 import { Meta } from "./Meta";
 import { Tags } from "./Tags";
+import { Page } from "@/components/Page";
 
 import * as styles from "./Post.module.scss";
+import { Sidebar } from "../Sidebar";
 
 interface Props {
   post: Node;
@@ -23,24 +25,25 @@ const Post: React.FC<Props> = ({ post }: Props) => {
 
   return (
     <div className={styles.post}>
-      <Link className={styles.button} to="/">
+      {/* <Link className={styles.button} to="/">
         All Articles
-      </Link>
-
-      <div className={styles.content}>
-        <Content body={html} title={title} />
+      </Link> */}
+      <Sidebar></Sidebar>
+        <Page>
+          <div className={styles.content}>
+            <Content body={html} title={title} />
+          </div>
+          <div className={styles.footer}>
+            <Meta date={date} />
+            {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
+            <Author />
+          </div>
+          <div className={styles.comments}>
+            <Comments postSlug={slug} postTitle={post.frontmatter.title} />
+          </div>
+        {/* </div> */}
+        </Page>
       </div>
-
-      <div className={styles.footer}>
-        <Meta date={date} />
-        {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
-        <Author />
-      </div>
-
-      <div className={styles.comments}>
-        <Comments postSlug={slug} postTitle={post.frontmatter.title} />
-      </div>
-    </div>
   );
 };
 

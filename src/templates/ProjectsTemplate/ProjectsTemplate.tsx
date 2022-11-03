@@ -35,7 +35,6 @@ const IndexTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
           hasPrevPage={hasPrevPage}
           hasNextPage={hasNextPage}
         />
-        <h1>hi</h1>
       </Page>
     </Layout>
   );

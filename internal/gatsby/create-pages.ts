@@ -14,7 +14,7 @@ type CreateWithPagination = (parameters: {
 }) => void;
 
 const getPaginationPath = (basePath: string, page: number): string =>
-  [basePath === "/" ? "" : basePath, "page", page].join("/");
+  [basePath === "/" ? "" : basePath, "", page].join("/");
 
 const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -113,7 +113,7 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   tags.forEach((tag) => {
     const path = utils.concat(
       constants.routes.tagRoute,
-      "/",
+      "/projects",
       utils.toKebabCase(tag.fieldValue),
     );
 
@@ -132,7 +132,9 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   });
 
   const path = constants.routes.indexRoute;
+  const projectPath = constants.routes.projectRoute;
   const template = constants.templates.indexTemplate;
+  const projectTemplate = constants.templates.projectsTemplate;
   const posts = await queries.postsQuery(graphql);
   const total = Math.ceil((posts?.edges?.length ?? 0) / postsLimit);
 
@@ -143,6 +145,15 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
       total,
       page,
       path,
+    });
+  }
+  for (let page = 0; page < total; page += 1) {
+    createWithPagination({
+      limit: postsLimit,
+      template: projectTemplate,
+      total,
+      page,
+      path: projectPath,
     });
   }
 };
